@@ -73,6 +73,8 @@ void SimplePad::on_Save_As_triggered()
         QString text = ui->textArea->toPlainText();
         //izvada tekstu jauna faila
         out << text;
+        //nomaina loga nosaukumu uz jauno
+        setWindowTitle(fileName);
         //aizver failu
         file.close();
 }

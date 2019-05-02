@@ -6,9 +6,77 @@ SimplePad::SimplePad(QWidget *parent) :
     ui(new Ui::SimplePad)
 {
     ui->setupUi(this);
-}
+    //Teksta laukums tiek izvietots pa visu ekranu
+    this->setCentralWidget(ui->textArea);
 
+}
+//destruktors
 SimplePad::~SimplePad()
 {
     delete ui;
+}
+
+void SimplePad::on_New_triggered()
+{
+    //Notira tekstu un sagatavo jaunai ievadei
+    workingFile.clear();
+    ui->textArea->setText(QString());
+
+
+}
+//Atvert failu
+void SimplePad::on_Open_triggered()
+{
+    //atver logu un prasa izveleties failu
+       QString fileName = QFileDialog::getOpenFileName(this, "Open file");
+       // izveido input/output objektu failam
+       QFile file(fileName);
+       //atvertais fails klust par pasreiz atverto failu
+       workingFile = fileName;
+        //ja kluda tad atgriez pazinojumu
+       if (!file.open(QIODevice::ReadOnly | QFile::Text)) {
+       //atgriez kludas pazinojumu
+           QMessageBox::warning(this, "ERROR!!!", "Could not open file: " + file.errorString());
+       //beidz metodi
+           return;
+       }
+       //uzstada faila nosaukumu par loga nosaukumu
+       setWindowTitle(fileName);
+
+       //Nolasa tekstu no faila, un ievada to teksta laukuma
+       QTextStream in(&file);
+       QString text = in.readAll();
+       ui->textArea->setText(text);
+
+       //aizver failu
+       file.close();
+}
+
+//saglaba failu
+void SimplePad::on_Save_As_triggered()
+{
+        // atver faila saglabasanas dialogu. Nosaukuma
+        QString fileName = QFileDialog::getSaveFileName(this, "Save as");
+        // izveido input/output objektu failam
+        QFile file(fileName);
+
+        //ja kluda, tad atgriez pazinojumu
+        if (!file.open(QFile::WriteOnly | QFile::Text)) {
+            QMessageBox::warning(this, "ERROR!!!", "Could not save file: " + file.errorString());
+            //beidz metodi
+            return;
+        }
+        //izveido output uz failu
+        QTextStream out(&file);
+        //parvers teksta laukuma ievadito tekstu par parastu tekstu
+        QString text = ui->textArea->toPlainText();
+        //izvada tekstu jauna faila
+        out << text;
+        //aizver failu
+        file.close();
+}
+
+void SimplePad::on_Exit_triggered()
+{
+     QApplication::quit();
 }

@@ -2,7 +2,10 @@
 #define SIMPLEPAD_H
 
 #include <QMainWindow>
-
+#include <QFile>
+#include <QFileDialog>
+#include <QTextStream>
+#include <QMessageBox>
 namespace Ui {
 class SimplePad;
 }
@@ -15,8 +18,18 @@ public:
     explicit SimplePad(QWidget *parent = nullptr);
     ~SimplePad();
 
+private slots:
+    void on_New_triggered();
+
+    void on_Open_triggered();
+
+    void on_Save_As_triggered();
+
+    void on_Exit_triggered();
+
 private:
     Ui::SimplePad *ui;
+    QString workingFile="";
 };
 
 #endif // SIMPLEPAD_H

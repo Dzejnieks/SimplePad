@@ -45,7 +45,6 @@
     </property>
     <addaction name="New"/>
     <addaction name="Open"/>
-    <addaction name="Print"/>
     <addaction name="Save_As"/>
     <addaction name="separator"/>
     <addaction name="Exit"/>
@@ -79,11 +78,6 @@
   <action name="Open">
    <property name="text">
     <string>Open</string>
-   </property>
-  </action>
-  <action name="Print">
-   <property name="text">
-    <string>Print</string>
    </property>
   </action>
   <action name="Save_As">

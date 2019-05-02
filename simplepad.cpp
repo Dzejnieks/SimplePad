@@ -33,11 +33,12 @@ void SimplePad::on_Open_triggered()
        QFile file(fileName);
        //atvertais fails klust par pasreiz atverto failu
        workingFile = fileName;
-        //ja kluda tad atgriez pazinojumu
+
+       //ja kluda tad atgriez pazinojumu
        if (!file.open(QIODevice::ReadOnly | QFile::Text)) {
-       //atgriez kludas pazinojumu
+           //atgriez kludas pazinojumu
            QMessageBox::warning(this, "ERROR!!!", "Could not open file: " + file.errorString());
-       //beidz metodi
+           //beidz metodi
            return;
        }
        //uzstada faila nosaukumu par loga nosaukumu
@@ -75,8 +76,28 @@ void SimplePad::on_Save_As_triggered()
         //aizver failu
         file.close();
 }
-
+//Aizvert failu
 void SimplePad::on_Exit_triggered()
 {
      QApplication::quit();
+}
+//kopet tekstu
+void SimplePad::on_Copy_triggered()
+{
+    ui->textArea->copy();
+}
+//ielimet tekstu
+void SimplePad::on_Paste_triggered()
+{
+    ui->textArea->paste();
+}
+//atgriezties vienu darbibu atpakal
+void SimplePad::on_Undo_triggered()
+{
+    ui->textArea->undo();
+}
+//atgriezties vienu darbibu uz prieksu
+void SimplePad::on_Redo_triggered()
+{
+    ui->textArea->redo();
 }

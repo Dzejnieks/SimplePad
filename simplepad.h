@@ -27,6 +27,14 @@ private slots:
 
     void on_Exit_triggered();
 
+    void on_Copy_triggered();
+
+    void on_Paste_triggered();
+
+    void on_Undo_triggered();
+
+    void on_Redo_triggered();
+
 private:
     Ui::SimplePad *ui;
     QString workingFile="";

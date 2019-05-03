@@ -103,3 +103,19 @@ void SimplePad::on_Redo_triggered()
 {
     ui->textArea->redo();
 }
+
+void SimplePad::on_Print_triggered()
+{
+        //izveido objektu printera apstradei
+        QPrinter printer;
+        //atvert printera izvelnes logu
+        QPrintDialog printDialog(&printer, this);
+        //ja neizdodas printeri izveleties, tad izvada erroru
+        if(printDialog.exec() != QDialog::Accepted){
+            QMessageBox::warning(this,"ERROR!!!", "Could not find printer");
+            //partrauc metodi
+            return;
+        }
+        //nosuta tekstu uz printeri
+        ui->textArea->print(&printer);
+}

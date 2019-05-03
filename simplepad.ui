@@ -46,6 +46,7 @@
     <addaction name="New"/>
     <addaction name="Open"/>
     <addaction name="Save_As"/>
+    <addaction name="Print"/>
     <addaction name="separator"/>
     <addaction name="Exit"/>
    </widget>
@@ -108,6 +109,11 @@
   <action name="Redo">
    <property name="text">
     <string>Redo</string>
+   </property>
+  </action>
+  <action name="Print">
+   <property name="text">
+    <string>Print</string>
    </property>
   </action>
  </widget>

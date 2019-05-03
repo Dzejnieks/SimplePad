@@ -6,6 +6,8 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QPrintDialog>
+#include <QPrinter>
 namespace Ui {
 class SimplePad;
 }
@@ -34,6 +36,8 @@ private slots:
     void on_Undo_triggered();
 
     void on_Redo_triggered();
+
+    void on_Print_triggered();
 
 private:
     Ui::SimplePad *ui;

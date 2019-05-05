@@ -119,3 +119,13 @@ void SimplePad::on_Print_triggered()
         //nosuta tekstu uz printeri
         ui->textArea->print(&printer);
 }
+//izvada about message
+void SimplePad::on_about_triggered()
+{
+    QString about_message;
+        about_message+="SimplePad\n";
+        about_message+="Made by: Aksels Skvorcovs\n";
+        about_message+="Version 1.0.0\n";
+        //izvada about message
+        QMessageBox::information(this,"About",about_message);
+}

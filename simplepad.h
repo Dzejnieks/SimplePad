@@ -39,6 +39,8 @@ private slots:
 
     void on_Print_triggered();
 
+    void on_about_triggered();
+
 private:
     Ui::SimplePad *ui;
     QString workingFile="";

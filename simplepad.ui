@@ -58,15 +58,24 @@
     <addaction name="Paste"/>
     <addaction name="Undo"/>
     <addaction name="Redo"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="aboutMenu">
     <property name="title">
-     <string>about</string>
+     <string>About</string>
     </property>
     <addaction name="about"/>
    </widget>
+   <widget class="QMenu" name="settingsMenu">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="Change_font"/>
+    <addaction name="Change_text_color"/>
+   </widget>
    <addaction name="fileMenu"/>
    <addaction name="editMenu"/>
+   <addaction name="settingsMenu"/>
    <addaction name="aboutMenu"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -125,7 +134,17 @@
   </action>
   <action name="about">
    <property name="text">
-    <string>about</string>
+    <string>About</string>
+   </property>
+  </action>
+  <action name="Change_font">
+   <property name="text">
+    <string>Change font</string>
+   </property>
+  </action>
+  <action name="Change_text_color">
+   <property name="text">
+    <string>Change text color</string>
    </property>
   </action>
  </widget>

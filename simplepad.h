@@ -8,6 +8,9 @@
 #include <QMessageBox>
 #include <QPrintDialog>
 #include <QPrinter>
+#include <QFontDialog>
+#include <QColorDialog>
+#include <QColor>
 namespace Ui {
 class SimplePad;
 }
@@ -40,6 +43,10 @@ private slots:
     void on_Print_triggered();
 
     void on_about_triggered();
+
+    void on_Change_font_triggered();
+
+    void on_Change_text_color_triggered();
 
 private:
     Ui::SimplePad *ui;

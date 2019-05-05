@@ -129,3 +129,19 @@ void SimplePad::on_about_triggered()
         //izvada about message
         QMessageBox::information(this,"About",about_message);
 }
+
+void SimplePad::on_Change_font_triggered()
+{
+    bool fontSelected;
+    QFont font = QFontDialog::getFont(&fontSelected, this);
+    if (fontSelected)
+        ui->textArea->setFont(font);
+}
+
+void SimplePad::on_Change_text_color_triggered()
+{
+    QColor color =QColorDialog::getColor(Qt::black,this, "Select color: ");
+    if(color.isValid()){
+        ui->textArea->setTextColor(color);
+    }
+}

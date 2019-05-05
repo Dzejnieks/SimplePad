@@ -59,8 +59,15 @@
     <addaction name="Undo"/>
     <addaction name="Redo"/>
    </widget>
+   <widget class="QMenu" name="aboutMenu">
+    <property name="title">
+     <string>about</string>
+    </property>
+    <addaction name="about"/>
+   </widget>
    <addaction name="fileMenu"/>
    <addaction name="editMenu"/>
+   <addaction name="aboutMenu"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
    <attribute name="toolBarArea">
@@ -114,6 +121,11 @@
   <action name="Print">
    <property name="text">
     <string>Print</string>
+   </property>
+  </action>
+  <action name="about">
+   <property name="text">
+    <string>about</string>
    </property>
   </action>
  </widget>
